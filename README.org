@@ -1,0 +1,8 @@
+#+title: Deepu Mohan Puthrote's Exercism Workspace
+
+* Setup
+
+#+begin_src
+ exercism configure --token={$TOKEN}
+ exercism configure --workspace=~/Workspace/github.com/WarFox/exercism-workspace
+#+end_src
