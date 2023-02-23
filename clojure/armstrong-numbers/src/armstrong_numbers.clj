@@ -1,5 +1,4 @@
-(ns armstrong-numbers
-  (:require [clojure.string :as str]))
+(ns armstrong-numbers)
 
 (defn- power-of
   [num pow]
@@ -9,7 +8,7 @@
   "Returns list of digits in a number"
   [num]
   (loop [acc []
-         n  num]
+         n   num]
     (if (< n 10)
       (conj acc n)
       (recur (conj acc (mod n 10))
@@ -28,19 +27,3 @@
   [num]
   (= num
      (armstrong num)))
-
-(str/join
- (map (comp first str/upper-case)
-      (str/split "hamlin hamlin miguel" #" ")))
-
-(str/capitalize "Complementary metal-oxide semiconductor")
-
-"HyperText Markup Language"
-
-(defn capitalize
-  [])
-
-(map #(str/split % #"\s+") (str/split "Complementary metal-oxide semiconductor" #"-"))
-
-(reduce
- "Complementary

@@ -29,16 +29,16 @@
 
 (defn- run-instruction
   [{:keys [bearing] :as robot} instruction]
-  (condp = instruction
+  (case instruction
     \R (assoc robot :bearing (turn-right bearing))
     \L (assoc robot :bearing (turn-left bearing))
     \A (update robot :coordinates (advance bearing))))
 
 (defn simulate
   [simulation robot]
-  (loop [remaining simulation
+  (loop [instructions (seq simulation)
          robbie robot]
-    (if (empty? remaining)
-      robbie
-      (recur (rest remaining)
-             (run-instruction robbie (first remaining))))))
+    (if-let [[instruction & remaining] instructions]
+      (recur remaining
+             (run-instruction robbie instruction))
+      robbie)))

@@ -1,6 +1,6 @@
 (ns armstrong-numbers-test
   (:require [clojure.test :refer [deftest is testing]]
-            [armstrong-numbers :refer [armstrong? is-yelling?]]))
+            [armstrong-numbers :refer [armstrong?]]))
 
 (deftest armstrong-number-0
   (testing "Zero is an Armstrong number"
@@ -41,10 +41,3 @@
 (deftest armstrong-number-21897142587612075
   (testing "Seventeen digit number that is an Armstrong number"
     (is (armstrong? 21897142587612075))))
-
-(deftest is-yelling-test
-  (testing "4?"
-    (is (not (is-yelling? "4?"))))
-
-  (testing "1, 2, 3"
-    (is (not (is-yelling? "1, 2, 3")))))

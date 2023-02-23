@@ -2,9 +2,8 @@
 
 (defn collatz
   [number]
-  (loop
-      [num number
-       n   0]
+  (loop [num number
+         n   0]
     (cond
       (< num 1)
       (throw (Exception.))

@@ -3,8 +3,8 @@
 (defn accumulate
   "f  is a function, coll is collection"
   [f coll]
-  (loop [remaining coll
+  (loop [collection (seq coll)
          acc []]
-    (if (empty? remaining)
-      acc
-      (recur (rest remaining) (conj acc (f (first remaining)))))))
+    (if-let [[elem & remaining] collection]
+      (recur remaining (conj acc (f elem)))
+      acc)))
